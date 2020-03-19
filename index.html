@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <title>Pie Chart</title>
+    <script src="chart.min.js"></script>
+    <script src="utils.js"></script>
+    <style type="text/css">
+    </style>
+</head>
+
+<body>
+    <div id="canvas-holder" style="width:40%">
+        <canvas id="chart-area" style="display: block; width: 538px; height: 269px;" width="538" height="269"
+            class="chartjs-render-monitor"></canvas>
+    </div>
+    <script>
+        var config = {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data: [
+                        23,
+                        25,
+                        15,
+                        15,
+                        15,
+                    ],
+                    backgroundColor: [
+                        window.chartColors.red,
+                        window.chartColors.orange,
+                        window.chartColors.yellow,
+                        window.chartColors.green,
+                        window.chartColors.blue,
+                    ],
+                    label: 'Dataset 1'
+                }],
+                labels: [
+                    'Red',
+                    'Orange',
+                    'Yellow',
+                    'Green',
+                    'Blue'
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        };
+
+        window.onload = function () {
+            var ctx = document.getElementById('chart-area').getContext('2d');
+            window.myPie = new Chart(ctx, config);
+        };
+
+
+    </script>
+
+
+
+</body>
+
+</html>
